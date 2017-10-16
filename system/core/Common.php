@@ -59,6 +59,21 @@ function config_item($item)
 	return $_config_item[$item];
 }
 
+/**
+*跟踪载入了多少类库
+*/
+function &is_laoded($class='')
+{
+	static $_is_loaded = array();
+
+	if($class !='')	
+	{
+		$_is_loaded[strtolower($class)] = $class;
+	}
+
+	return $_is_loaded;
+}
+
 function &load_class($class, $directory = 'libraries')
 {
 	static $_classes = array();
@@ -105,9 +120,6 @@ function &load_class($class, $directory = 'libraries')
 	$_classes[$class] = new $name();
 	return $_classes[$class];
 }
-
-
-
 
 function p($arr)
 {
