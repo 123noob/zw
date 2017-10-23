@@ -67,7 +67,7 @@ class Hooks {
 		}
 
 		/*
-		*调用hook，防止hook里又调用相同hook进而形成死循环，设置一个开关有效防止这种情况
+		*防止hook里又调用相同hook而形成死循环，设置一个开关有效防止这种情况
 		*/
 		if($this->in_progress == true)
 		{
