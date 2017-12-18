@@ -19,4 +19,7 @@ else
 
 $EXT = & load_class('Hooks', 'core');
 
+$URI = & load_class('URI', 'core');
+
+
 
