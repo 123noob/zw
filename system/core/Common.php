@@ -83,6 +83,7 @@ function &load_class($class, $directory = 'libraries')
 		return $_classes[$class];
 	}
 
+	//设置一个开关，如果没有要导入的类，抛出错误。妙处是减少代码量
 	$name = false;
 
 	foreach (array(APPPATH, BASEPATH) as $path) 
@@ -91,8 +92,10 @@ function &load_class($class, $directory = 'libraries')
 		{
 			$name = $class;
 
+			//检查类是否已经存在，如果不存在才导入。class_exists第2个可选参数，true自动载入类
 			if(class_exists($name) === false)
 			{
+				//导入类
 				require($path.$directory.'/'.$class.'.php');
 			}
 
@@ -106,6 +109,7 @@ function &load_class($class, $directory = 'libraries')
 
 		if(class_exists($name) === false)
 		{
+			//如果有，导入继承类
 			require(APPPATH.$directory.'/'.config_item('subclass_prefix').$class.'.php');
 		}
 	}
@@ -115,7 +119,8 @@ function &load_class($class, $directory = 'libraries')
 		exit('Unable to locate the specified class: '.$class.'.php');
 	}
 
-	is_loaded($class);
+	//函数里声明的static变量不会在函数被调用结束后销毁
+	// is_loaded($class);
 
 	$_classes[$class] = new $name();
 	return $_classes[$class];
@@ -125,5 +130,4 @@ function p($arr)
 {
 	echo '<pre>';
 	print_r($arr);
-	die;
 }

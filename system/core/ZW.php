@@ -21,5 +21,13 @@ $EXT = & load_class('Hooks', 'core');
 
 $URI = & load_class('URI', 'core');
 
+// p($URI->_fetch_uri_string());
+// p($URI);
+$RTR =& load_class('Router', 'core');
+$RTR->_set_routing();
+
+
+
+
 
 

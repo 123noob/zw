@@ -9,7 +9,7 @@ class URI {
 		if($uri = $this->_detect_uri())
 		{
 			// $this->_set_uri_string($uri);
-			$this->uri_string = ($str == '/') ? '' : $str;
+			$this->uri_string = ($uri == '/') ? '' : $uri;
 			return;
 		}
 	}
