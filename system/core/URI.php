@@ -44,4 +44,17 @@ class URI {
 
 		return str_replace(array('//', '../'), '/', trim($uri, '/'));
 	}
+
+	function _explode_segments()
+	{
+		// \\1  WTF?
+		foreach (explode('/', preg_replace("", "\\1", $this->uri_string)) as $val) 
+		{
+
+			if(($val = trim($val) )!= '')
+			{
+				$this->segments[] = $val;
+			}
+		}
+	}
 }
