@@ -26,6 +26,8 @@ $URI = & load_class('URI', 'core');
 $RTR =& load_class('Router', 'core');
 $RTR->_set_routing();
 
+require BASEPATH.'core/Controller.php';
+
 
 
 

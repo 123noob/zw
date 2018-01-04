@@ -40,7 +40,7 @@ class Router {
 	{
 		if ($this->default_controller === FALSE)
 		{
-			show_error("Unable to determine what should be displayed. A default route has not been specified in the routing file.");
+			exit("Unable to determine what should be displayed. A default route has not been specified in the routing file.");
 		}
 
 		if(strpos($this->default_controller, '/') !== false)
